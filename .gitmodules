@@ -4,3 +4,6 @@
 [submodule "promos/2024-2025"]
 	path = src/promos/2024-2025
 	url = git@github.com:alouradou/do-it-2024-2025.git
+[submodule "src/promos/2023-2024"]
+	path = src/promos/2023-2024
+	url = git@github.com:alouradou/do-it-2023-2024.git
