@@ -1,0 +1,6 @@
+[submodule "promos/20XX-20YY"]
+	path = promos/20XX-20YY
+	url = git@github.com:alouradou/do-it-20XX-20YY.git
+[submodule "promos/2024-2025"]
+	path = promos/2024-2025
+	url = git@github.com:alouradou/do-it-2024-2025.git
