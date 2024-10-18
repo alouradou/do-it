@@ -7,3 +7,6 @@
 [submodule "src/promos/2023-2024"]
 	path = src/promos/2023-2024
 	url = git@github.com:alouradou/do-it-2023-2024.git
+[submodule "src/promos/2022-2023"]
+	path = src/promos/2022-2023
+	url = git@github.com:alouradou/do-it-2022-2023.git
