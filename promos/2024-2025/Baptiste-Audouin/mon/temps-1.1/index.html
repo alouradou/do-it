@@ -1,0 +1,451 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Découverte des API REST</title>
+
+        <link href="/do-it/assets/node_modules/prismjs/themes/prism-solarizedlight.min.css" rel="stylesheet">
+        <link href="/do-it/assets/node_modules/prismjs/plugins/line-numbers/prism-line-numbers.min.css" rel="stylesheet">
+
+        <link href="/do-it/assets/stylesheets/main.css" rel="stylesheet">
+    </head>
+    <body>
+        <script>
+        window.MathJax = {
+            tex: {
+            inlineMath: [
+                [
+                '$', '$'
+                ],
+                [
+                '\\(', '\\)'
+                ]
+            ]
+            },
+            svg: {
+            fontCache: 'global'
+            }
+        };
+        </script>
+        <script type="text/javascript" id="MathJax-script" src="/do-it/assets/node_modules/mathjax/es5/tex-svg-full.js"></script>
+
+        <header class="border-b-2 border-gray-200 mb-4">
+        <div class="max-w-[1000px] mx-auto px-4">
+            <div class="min-h-[50px] flex justify-between items-center">
+                <a class="mx-2" href="/do-it/">Home</a>
+                <div class="flex items-center gap-4 sm:gap-6 ">
+                    <a class="" href="/do-it/cs">CS</a>
+                    <a class="" href="/do-it/pok">POK</a>
+                    <a class="" href="/do-it/mon">MON</a>
+                    <a class="" href="/do-it/projets">Projets</a>
+                    <a class="hidden sm:block" href="/do-it/promos">Promos</a>
+                    <a href="/do-it/search">
+                        <svg class="h-5 aspect-square" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"></path>
+                        </svg>
+                    </a>
+                    <a class="hidden sm:block" href="https://github.com/FrancoisBrucker/do-it" target="_blank">
+                        <svg class="h-5 aspect-square" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>GitHub</title><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+        </header>
+
+        <main class="max-w-[1000px] mx-auto px-4" data-pagefind-body="">
+            
+<article class="relative">
+<h1 class="mb-1">Découverte des API REST</h1>
+<div class="mb-4">
+    
+        <div class="px-4 flex flex-wrap items-center">
+            
+                <div class="font-bold">Tags : </div>
+            
+            <ul class="flex flex-wrap overflow-auto not-prose list-none my-1 mx-0 px-1 gap-1" data-pagefind-meta="Tags">
+                
+                    <li class="bg-yellow-200 rounded-full px-2" data-pagefind-filter="Tags">MON</li>
+                
+                    <li class="bg-yellow-200 rounded-full px-2" data-pagefind-filter="Tags">2024-2025</li>
+                
+                    <li class="bg-yellow-200 rounded-full px-2" data-pagefind-filter="Tags">temps 1</li>
+                
+
+            </ul>
+            
+            
+            <div class="hidden" data-pagefind-meta="Type">
+                
+                    
+                
+                    
+                
+                    
+                
+            </div>
+        </div>
+    
+
+    
+        <div class="px-4 flex flex-wrap items-center">
+            <div class="font-bold">Auteurs : </div>
+            <ul class="flex flex-wrap not-prose list-none my-1 mx-0 px-1 gap-1" data-pagefind-meta="Auteurs">
+                
+                    <li class="bg-blue-200 rounded-full px-2" data-pagefind-filter="Auteurs">Baptiste Audouin</li>
+                
+            </ul>
+        </div>
+    
+
+    
+</div>
+
+        <p class="mb-4 text-lg">
+
+                Le but de ce MON est de me former sur les API REST ainsi que sur leurs intégrations dans des projets web
+
+        </p>
+
+
+
+    
+<div class="quote relative  py-2 drop-shadow rounded rounded-tl-none rounded-bl-none border-solid border-l-8 border-purple-500 bg-purple-100">
+<svg class="absolute w-7 h-7 pl-1 pt-0.5 pb-0.5 text-purple-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M5 19a2 2 0 01-2-2V7a2 2 0 012-2h4l2 2h4a2 2 0 012 2v1M5 19h14a2 2 0 002-2v-5a2 2 0 00-2-2H9a2 2 0 00-2 2v5a2 2 0 01-2 2z"></path>
+</svg>
+<div class="pl-8 mr-8">
+
+<a href="/do-it/promos/">Promotions</a><span class="px-1">/</span><a href="/do-it/promos/2024-2025/">2024-2025</a><span class="px-1">/</span><a href="/do-it/promos/2024-2025/Baptiste-Audouin/">Baptiste Audouin</a><span class="px-1">/</span><a href="/do-it/promos/2024-2025/Baptiste-Audouin/mon/">MON de Baptiste Audouin</a><span class="px-1">/</span><a href="/do-it/promos/2024-2025/Baptiste-Audouin/mon/temps-1.1/">Découverte des API REST</a>
+
+</div></div>
+
+
+
+
+<h2>Introduction</h2>
+<p>A travers ce MON j'ai pu découvrir le fonctionnement et les utilisations des API REST.
+<br> J'ai donc suivi deux cours en ligne sur le sujet :</p>
+<ul>
+<li>Ce premier <a href="https://openclassrooms.com/fr/courses/6031886-debutez-avec-les-api-rest">cours</a> qui permet de découvrir et débuter avec les API REST</li>
+<li>Et ce second <a href="https://openclassrooms.com/fr/courses/6573181-adoptez-les-api-rest-pour-vos-projets-web">cours</a> qui forme sur les mises en application des API REST dans des projets web</li>
+</ul>
+<h2>Sommaire</h2>
+<ol>
+<li>Qu'est-ce qu'une API ?</li>
+<li>Fonctionnement d'une API REST</li>
+<li>Intégration dans des projets web</li>
+</ol>
+<h2>1. Qu'est-ce qu'une API ?</h2>
+<h4>Définition</h4>
+<p>API ou Application Programming Interface est une interface de programmation, c'est-à-dire un ensemble de classes, de fonctions et de méthodes qui servent de façade à un logiciel. D'autres logiciels pourront donc accéder aux services de ce logiciel grâce à cette interface.</p>
+ <div><img src="API_Schema.png"></div>
+<h4>Utilisation</h4>
+<p>L’API permet de faciliter la communication entre 2 produits ou services, comme par exemple une application et un service de géolocalisation. L’API permet à ces 2 entités d’échanger des données sans en connaître les détails de mise en œuvre. Elle permet donc un immense gain de temps pour les développeurs et un gain d’argent pour les entreprises.
+<br> Il existe différents types d'API, par la suite nous allons nous focaliser sur l'API REST qui est la plus commune et facile d'utilisation.</p>
+<h2>2. Fonctionnement d'une API REST</h2>
+<h4>Principes clés</h4>
+<p>REST est un type d'architecture qui signifie <em><strong>RE</strong>presentational <strong>S</strong>tate <strong>T</strong>ransfer</em> et qui s'articule autour de 4 principes clés :
+<br></p>
+<ul>
+<li>une ressource distribuée sur un serveur distant (mécanisme client-serveur)</li>
+<li>un identifiant de la ressource (les URL et protocole HTTP)</li>
+<li>des « verbes » HTTP non inclus dans l'URL permettant d’agir sur la ressource :
+<ul>
+<li>GET - Lire une ressource</li>
+<li>POST - Créer une ressource</li>
+<li>PUT - Modifier la valeur d'une ressource</li>
+<li>DELETE - Supprimer une ressource</li>
+</ul>
+</li>
+<li>une représentation de la ressource (la réponse peut avoir plusieurs représentations possibles : HTML, JSON, XML)
+<br>
+Ces principes permettent de structurer les interactions entre les clients (par exemple, des applications ou des navigateurs) et les serveurs en utilisant des requêtes HTTP. Le client envoie des requêtes au serveur en fonction des verbes HTTP et des URLs, et le serveur renvoie une réponse sous la forme d’une représentation de la ressource. Cette approche rend les APIs REST faciles à comprendre et à utiliser indépendamment des plateformes (Linux, Windows, ...) et langages (Python, Java, ...).
+<br>
+Il existe d'autres types d'API, comme SOAP (Simple Object Access Protocol), qui est un protocole plus strict basé sur XML pour échanger des données entre applications, mais REST est souvent privilégié en raison de sa simplicité, de son utilisation des standards web comme HTTP, et de sa flexibilité à s'adapter à différents formats de données tels que JSON ou XML, ce qui le rend plus léger et facile à implémenter dans la plupart des cas.</li>
+</ul>
+<h4>Sécurité</h4>
+<p>La sécurité est un enjeu crucial lorsqu'on utilise des API. Une API non sécurisée peut entraîner des fuites de données sensibles, comme les informations bancaires des clients, et rendre responsable l'utilisateur de l'API en cas de problème. Il est donc essentiel de choisir des API certifiées ou sécurisées, voire d'en acheter si nécessaire.</p>
+<p>Dans un premier temps, il faut que l'API utilise le protocole HTTPS, comme c'est le cas pour l'API de CDiscount, qui est fiable et sécurisée, car utilisée en interne par l'entreprise. Enfin, avant d'intégrer une API dans un système il faut toujours la tester avec des outils comme POSTMAN.</p>
+<h4>Exemple de requête avec POSTMAN</h4>
+<p>Voici un exemple de requête avec POSTMAN, j'ai choisi l'API <a href="https://countrylayer.com/documentation/">countrylayer</a> qui est libre d'accès. Pour la tester on regarde dans la documentation, par exemple il y a une requête qui nous donne le nom d'un pays en fonction de sa capitale. Avant de l'exécuter il faut générer une clé d'accès unique afin de s'authentifier lors de la requête. On peut désormais exécuter la requête :</p>
+<div><img src="API-request_country_by_capital.png"></div>
+<h2>3. Intégration dans un script Python</h2>
+<h3>Utilisation de l'API CountryLayer avec Python</h3>
+<h4>Définition des variables globales</h4>
+<p>Nous définissons d'abord les variables globales nécessaires pour faire des requêtes à l'API CountryLayer. Cela inclut la clé d'API et l'URL de base de l'API.</p>
+<pre class="language-python " style="counter-reset: linenumber 0"><code class="language-python"><span class="token keyword">import</span> requests
+
+<span class="token comment"># Définition des variables globales</span>
+countrylayer_TOKEN <span class="token operator">=</span> <span class="token string">"5db9c34ca3979a85d30ce91cef09a02b"</span>
+countrylayer_URL <span class="token operator">=</span> <span class="token string">"https://api.countrylayer.com/v2"</span>
+</code></pre>
+<p>Ensuite, en parcourant la documentation de countrylayer on peut regarder toutes les requêtes possbles avec les paramètres requis pour faire la requête.</p>
+<h4>Fonction pour obtenir des pays par capitale</h4>
+<p>La fonction <code>get_country_by_capital</code> permet de récupérer des informations sur les pays en utilisant le nom de leur capitale. Elle construit l'URL pour la requête et inclut la clé d'API dans les paramètres.</p>
+<pre class="language-python " style="counter-reset: linenumber 0"><code class="language-python"><span class="token comment"># Fonction pour obtenir des pays par capitale</span>
+<span class="token keyword">def</span> <span class="token function">get_country_by_capital</span><span class="token punctuation">(</span>capital<span class="token punctuation">:</span> <span class="token builtin">str</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    url <span class="token operator">=</span> <span class="token string-interpolation"><span class="token string">f"</span><span class="token interpolation"><span class="token punctuation">{</span>countrylayer_URL<span class="token punctuation">}</span></span><span class="token string">/capital/</span><span class="token interpolation"><span class="token punctuation">{</span>capital<span class="token punctuation">}</span></span><span class="token string">"</span></span>
+    params <span class="token operator">=</span> <span class="token punctuation">{</span>
+        <span class="token string">"access_key"</span><span class="token punctuation">:</span> countrylayer_TOKEN
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>url<span class="token punctuation">,</span> params<span class="token operator">=</span>params<span class="token punctuation">)</span>
+</code></pre>
+<h4>Fonction pour obtenir des pays par devise</h4>
+<p>La fonction <code>get_country_by_currency</code> permet de rechercher des pays en fonction de leur devise. Elle utilise l'URL spécifique à cette recherche et inclut la clé d'API en paramètre.</p>
+<pre class="language-python " style="counter-reset: linenumber 0"><code class="language-python"><span class="token comment"># Fonction pour obtenir des pays par devise</span>
+<span class="token keyword">def</span> <span class="token function">get_country_by_currency</span><span class="token punctuation">(</span>currency<span class="token punctuation">:</span> <span class="token builtin">str</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    url <span class="token operator">=</span> <span class="token string-interpolation"><span class="token string">f"</span><span class="token interpolation"><span class="token punctuation">{</span>countrylayer_URL<span class="token punctuation">}</span></span><span class="token string">/currency/</span><span class="token interpolation"><span class="token punctuation">{</span>currency<span class="token punctuation">}</span></span><span class="token string">"</span></span>
+    params <span class="token operator">=</span> <span class="token punctuation">{</span>
+        <span class="token string">"access_key"</span><span class="token punctuation">:</span> countrylayer_TOKEN
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>url<span class="token punctuation">,</span> params<span class="token operator">=</span>params<span class="token punctuation">)</span>
+</code></pre>
+<h4>Execution</h4>
+<p>On peut maintenant éxecuter les requêtes</p>
+<pre class="language-python " style="counter-reset: linenumber 0"><code class="language-python">get_country_by_capital<span class="token punctuation">(</span><span class="token string">"paris"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>json<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<pre class="language-json " style="counter-reset: linenumber 0"><code class="language-json"><span class="token punctuation">[</span><span class="token punctuation">{</span>'name'<span class="token operator">:</span> 'France'<span class="token punctuation">,</span>
+  'topLevelDomain'<span class="token operator">:</span> <span class="token punctuation">[</span>'.fr'<span class="token punctuation">]</span><span class="token punctuation">,</span>
+  'alpha2Code'<span class="token operator">:</span> 'FR'<span class="token punctuation">,</span>
+  'alpha3Code'<span class="token operator">:</span> 'FRA'<span class="token punctuation">,</span>
+  'callingCodes'<span class="token operator">:</span> <span class="token punctuation">[</span>'<span class="token number">33</span>'<span class="token punctuation">]</span><span class="token punctuation">,</span>
+  'capital'<span class="token operator">:</span> 'Paris'<span class="token punctuation">,</span>
+  'altSpellings'<span class="token operator">:</span> <span class="token punctuation">[</span>'FR'<span class="token punctuation">,</span> 'French Republic'<span class="token punctuation">,</span> 'République française'<span class="token punctuation">]</span><span class="token punctuation">,</span>
+  'region'<span class="token operator">:</span> 'Europe'<span class="token punctuation">}</span><span class="token punctuation">]</span>
+</code></pre>
+<p>On obtient bien la réponse <em>France</em> avec différents paramètres sur le pays.</p>
+<pre class="language-python " style="counter-reset: linenumber 0"><code class="language-python">get_country_by_currency<span class="token punctuation">(</span><span class="token string">"usd"</span><span class="token punctuation">)</span>
+</code></pre>
+<pre class="language-json " style="counter-reset: linenumber 0"><code class="language-json"><span class="token punctuation">[</span><span class="token punctuation">{</span>'name'<span class="token operator">:</span> 'American Samoa'<span class="token punctuation">,</span>
+  'topLevelDomain'<span class="token operator">:</span> <span class="token punctuation">[</span>'.as'<span class="token punctuation">]</span><span class="token punctuation">,</span>
+  'alpha2Code'<span class="token operator">:</span> 'AS'<span class="token punctuation">,</span>
+  'alpha3Code'<span class="token operator">:</span> 'ASM'<span class="token punctuation">,</span>
+  'callingCodes'<span class="token operator">:</span> <span class="token punctuation">[</span>'<span class="token number">1</span>'<span class="token punctuation">]</span><span class="token punctuation">,</span>
+  'capital'<span class="token operator">:</span> 'Pago Pago'<span class="token punctuation">,</span>
+  'altSpellings'<span class="token operator">:</span> <span class="token punctuation">[</span>'AS'<span class="token punctuation">,</span> 'Amerika Sāmoa'<span class="token punctuation">,</span> 'Amelika Sāmoa'<span class="token punctuation">,</span> 'Sāmoa Amelika'<span class="token punctuation">]</span><span class="token punctuation">,</span>
+  'region'<span class="token operator">:</span> 'Oceania'<span class="token punctuation">}</span><span class="token punctuation">,</span>
+ <span class="token punctuation">{</span>'name'<span class="token operator">:</span> 'Bonaire<span class="token punctuation">,</span> Sint Eustatius and Saba'<span class="token punctuation">,</span>
+  'topLevelDomain'<span class="token operator">:</span> <span class="token punctuation">[</span>'.an'<span class="token punctuation">,</span> '.nl'<span class="token punctuation">]</span><span class="token punctuation">,</span>
+  'alpha2Code'<span class="token operator">:</span> 'BQ'<span class="token punctuation">,</span>
+  'alpha3Code'<span class="token operator">:</span> 'BES'<span class="token punctuation">,</span>
+  'callingCodes'<span class="token operator">:</span> <span class="token punctuation">[</span>'<span class="token number">599</span>'<span class="token punctuation">]</span><span class="token punctuation">,</span>
+  'capital'<span class="token operator">:</span> 'Kralendijk'<span class="token punctuation">,</span>
+  'altSpellings'<span class="token operator">:</span> <span class="token punctuation">[</span>'BQ'<span class="token punctuation">,</span> 'Boneiru'<span class="token punctuation">]</span><span class="token punctuation">,</span>
+  'region'<span class="token operator">:</span> 'Americas'<span class="token punctuation">}</span><span class="token punctuation">,</span>
+ <span class="token punctuation">{</span>'name'<span class="token operator">:</span> 'British Indian Ocean Territory'<span class="token punctuation">,</span>
+  'topLevelDomain'<span class="token operator">:</span> <span class="token punctuation">[</span>'.io'<span class="token punctuation">]</span><span class="token punctuation">,</span>
+  'alpha2Code'<span class="token operator">:</span> 'IO'<span class="token punctuation">,</span>
+  'alpha3Code'<span class="token operator">:</span> 'IOT'<span class="token punctuation">,</span>
+  'callingCodes'<span class="token operator">:</span> <span class="token punctuation">[</span>'<span class="token number">246</span>'<span class="token punctuation">]</span><span class="token punctuation">,</span>
+  'capital'<span class="token operator">:</span> 'Diego Garcia'<span class="token punctuation">,</span>
+  'altSpellings'<span class="token operator">:</span> <span class="token punctuation">[</span>'IO'<span class="token punctuation">]</span><span class="token punctuation">,</span>
+  'region'<span class="token operator">:</span> 'Africa'<span class="token punctuation">}</span><span class="token punctuation">,</span>
+ <span class="token punctuation">{</span>'name'<span class="token operator">:</span> 'United States Minor Outlying Islands'<span class="token punctuation">,</span>
+  'topLevelDomain'<span class="token operator">:</span> <span class="token punctuation">[</span>'.us'<span class="token punctuation">]</span><span class="token punctuation">,</span>
+  'alpha2Code'<span class="token operator">:</span> 'UM'<span class="token punctuation">,</span>
+  'alpha3Code'<span class="token operator">:</span> 'UMI'<span class="token punctuation">,</span>
+  'callingCodes'<span class="token operator">:</span> <span class="token punctuation">[</span>'<span class="token number">1</span>'<span class="token punctuation">]</span><span class="token punctuation">,</span>
+  'capital'<span class="token operator">:</span> ''<span class="token punctuation">,</span>
+  'altSpellings'<span class="token operator">:</span> <span class="token punctuation">[</span>'UM'<span class="token punctuation">]</span><span class="token punctuation">,</span>
+  'region'<span class="token operator">:</span> 'Americas'<span class="token punctuation">}</span><span class="token punctuation">,</span>
+ <span class="token punctuation">{</span>'name'<span class="token operator">:</span> 'Virgin Islands (British)'<span class="token punctuation">,</span>
+  'topLevelDomain'<span class="token operator">:</span> <span class="token punctuation">[</span>'.vg'<span class="token punctuation">]</span><span class="token punctuation">,</span>
+  'alpha2Code'<span class="token operator">:</span> 'VG'<span class="token punctuation">,</span>
+  'alpha3Code'<span class="token operator">:</span> 'VGB'<span class="token punctuation">,</span>
+  'callingCodes'<span class="token operator">:</span> <span class="token punctuation">[</span>'<span class="token number">1</span>'<span class="token punctuation">]</span><span class="token punctuation">,</span>
+  'capital'<span class="token operator">:</span> 'Road Town'<span class="token punctuation">,</span>
+  'altSpellings'<span class="token operator">:</span> <span class="token punctuation">[</span>'VG'<span class="token punctuation">]</span><span class="token punctuation">,</span>
+  'region'<span class="token operator">:</span> 'Americas'<span class="token punctuation">}</span><span class="token punctuation">,</span>
+ <span class="token punctuation">{</span>'name'<span class="token operator">:</span> 'Virgin Islands (U.S.)'<span class="token punctuation">,</span>
+  'topLevelDomain'<span class="token operator">:</span> <span class="token punctuation">[</span>'.vi'<span class="token punctuation">]</span><span class="token punctuation">,</span>
+  'alpha2Code'<span class="token operator">:</span> 'VI'<span class="token punctuation">,</span>
+  'alpha3Code'<span class="token operator">:</span> 'VIR'<span class="token punctuation">,</span>
+  'callingCodes'<span class="token operator">:</span> <span class="token punctuation">[</span>'<span class="token number">1</span> <span class="token number">340</span>'<span class="token punctuation">]</span><span class="token punctuation">,</span>
+  'capital'<span class="token operator">:</span> 'Charlotte Amalie'<span class="token punctuation">,</span>
+  'altSpellings'<span class="token operator">:</span> <span class="token punctuation">[</span>'VI'<span class="token punctuation">,</span>
+   'USVI'<span class="token punctuation">,</span>
+   'American Virgin Islands'<span class="token punctuation">,</span>
+   'U.S. Virgin Islands'<span class="token punctuation">]</span><span class="token punctuation">,</span>
+  'region'<span class="token operator">:</span> 'Americas'<span class="token punctuation">}</span><span class="token punctuation">,</span>
+ <span class="token punctuation">{</span>'name'<span class="token operator">:</span> 'Cambodia'<span class="token punctuation">,</span>
+  'topLevelDomain'<span class="token operator">:</span> <span class="token punctuation">[</span>'.kh'<span class="token punctuation">]</span><span class="token punctuation">,</span>
+  'alpha2Code'<span class="token operator">:</span> 'KH'<span class="token punctuation">,</span>
+  'alpha3Code'<span class="token operator">:</span> 'KHM'<span class="token punctuation">,</span>
+  'callingCodes'<span class="token operator">:</span> <span class="token punctuation">[</span>'<span class="token number">855</span>'<span class="token punctuation">]</span><span class="token punctuation">,</span>
+  'capital'<span class="token operator">:</span> 'Phnom Penh'<span class="token punctuation">,</span>
+  'altSpellings'<span class="token operator">:</span> <span class="token punctuation">[</span>'KH'<span class="token punctuation">,</span> 'Kingdom of Cambodia'<span class="token punctuation">]</span><span class="token punctuation">,</span>
+  'region'<span class="token operator">:</span> 'Asia'<span class="token punctuation">}</span><span class="token punctuation">,</span>
+ <span class="token punctuation">{</span>'name'<span class="token operator">:</span> 'Ecuador'<span class="token punctuation">,</span>
+  'topLevelDomain'<span class="token operator">:</span> <span class="token punctuation">[</span>'.ec'<span class="token punctuation">]</span><span class="token punctuation">,</span>
+  'alpha2Code'<span class="token operator">:</span> 'EC'<span class="token punctuation">,</span>
+  'alpha3Code'<span class="token operator">:</span> 'ECU'<span class="token punctuation">,</span>
+  'callingCodes'<span class="token operator">:</span> <span class="token punctuation">[</span>'<span class="token number">593</span>'<span class="token punctuation">]</span><span class="token punctuation">,</span>
+  'capital'<span class="token operator">:</span> 'Quito'<span class="token punctuation">,</span>
+  'altSpellings'<span class="token operator">:</span> <span class="token punctuation">[</span>'EC'<span class="token punctuation">,</span> 'Republic of Ecuador'<span class="token punctuation">,</span> 'República del Ecuador'<span class="token punctuation">]</span><span class="token punctuation">,</span>
+  'region'<span class="token operator">:</span> 'Americas'<span class="token punctuation">}</span><span class="token punctuation">,</span>
+ <span class="token punctuation">{</span>'name'<span class="token operator">:</span> 'El Salvador'<span class="token punctuation">,</span>
+  'topLevelDomain'<span class="token operator">:</span> <span class="token punctuation">[</span>'.sv'<span class="token punctuation">]</span><span class="token punctuation">,</span>
+  'alpha2Code'<span class="token operator">:</span> 'SV'<span class="token punctuation">,</span>
+  'alpha3Code'<span class="token operator">:</span> 'SLV'<span class="token punctuation">,</span>
+  'callingCodes'<span class="token operator">:</span> <span class="token punctuation">[</span>'<span class="token number">503</span>'<span class="token punctuation">]</span><span class="token punctuation">,</span>
+  'capital'<span class="token operator">:</span> 'San Salvador'<span class="token punctuation">,</span>
+  'altSpellings'<span class="token operator">:</span> <span class="token punctuation">[</span>'SV'<span class="token punctuation">,</span>
+   'Republic of El Salvador'<span class="token punctuation">,</span>
+   'República de El Salvador'<span class="token punctuation">]</span><span class="token punctuation">,</span>
+  'region'<span class="token operator">:</span> 'Americas'<span class="token punctuation">}</span><span class="token punctuation">,</span>
+ <span class="token punctuation">{</span>'name'<span class="token operator">:</span> 'Guam'<span class="token punctuation">,</span>
+  'topLevelDomain'<span class="token operator">:</span> <span class="token punctuation">[</span>'.gu'<span class="token punctuation">]</span><span class="token punctuation">,</span>
+  'alpha2Code'<span class="token operator">:</span> 'GU'<span class="token punctuation">,</span>
+  'alpha3Code'<span class="token operator">:</span> 'GUM'<span class="token punctuation">,</span>
+  'callingCodes'<span class="token operator">:</span> <span class="token punctuation">[</span>'<span class="token number">1</span>'<span class="token punctuation">]</span><span class="token punctuation">,</span>
+  'capital'<span class="token operator">:</span> 'Hagåtña'<span class="token punctuation">,</span>
+  'altSpellings'<span class="token operator">:</span> <span class="token punctuation">[</span>'GU'<span class="token punctuation">,</span> 'Guåhån'<span class="token punctuation">]</span><span class="token punctuation">,</span>
+  'region'<span class="token operator">:</span> 'Oceania'<span class="token punctuation">}</span><span class="token punctuation">,</span>
+ <span class="token punctuation">{</span>'name'<span class="token operator">:</span> 'Marshall Islands'<span class="token punctuation">,</span>
+  'topLevelDomain'<span class="token operator">:</span> <span class="token punctuation">[</span>'.mh'<span class="token punctuation">]</span><span class="token punctuation">,</span>
+  'alpha2Code'<span class="token operator">:</span> 'MH'<span class="token punctuation">,</span>
+  'alpha3Code'<span class="token operator">:</span> 'MHL'<span class="token punctuation">,</span>
+  'callingCodes'<span class="token operator">:</span> <span class="token punctuation">[</span>'<span class="token number">692</span>'<span class="token punctuation">]</span><span class="token punctuation">,</span>
+  'capital'<span class="token operator">:</span> 'Majuro'<span class="token punctuation">,</span>
+  'altSpellings'<span class="token operator">:</span> <span class="token punctuation">[</span>'MH'<span class="token punctuation">,</span>
+   'Republic of the Marshall Islands'<span class="token punctuation">,</span>
+   'Aolepān Aorōkin M̧ajeļ'<span class="token punctuation">]</span><span class="token punctuation">,</span>
+  'region'<span class="token operator">:</span> 'Oceania'<span class="token punctuation">}</span><span class="token punctuation">,</span>
+ <span class="token punctuation">{</span>'name'<span class="token operator">:</span> 'Micronesia (Federated States of)'<span class="token punctuation">,</span>
+  'topLevelDomain'<span class="token operator">:</span> <span class="token punctuation">[</span>'.fm'<span class="token punctuation">]</span><span class="token punctuation">,</span>
+  'alpha2Code'<span class="token operator">:</span> 'FM'<span class="token punctuation">,</span>
+  'alpha3Code'<span class="token operator">:</span> 'FSM'<span class="token punctuation">,</span>
+  'callingCodes'<span class="token operator">:</span> <span class="token punctuation">[</span>'<span class="token number">691</span>'<span class="token punctuation">]</span><span class="token punctuation">,</span>
+  'capital'<span class="token operator">:</span> 'Palikir'<span class="token punctuation">,</span>
+  'altSpellings'<span class="token operator">:</span> <span class="token punctuation">[</span>'FM'<span class="token punctuation">,</span> 'Federated States of Micronesia'<span class="token punctuation">]</span><span class="token punctuation">,</span>
+  'region'<span class="token operator">:</span> 'Oceania'<span class="token punctuation">}</span><span class="token punctuation">,</span>
+ <span class="token punctuation">{</span>'name'<span class="token operator">:</span> 'Northern Mariana Islands'<span class="token punctuation">,</span>
+  'topLevelDomain'<span class="token operator">:</span> <span class="token punctuation">[</span>'.mp'<span class="token punctuation">]</span><span class="token punctuation">,</span>
+  'alpha2Code'<span class="token operator">:</span> 'MP'<span class="token punctuation">,</span>
+  'alpha3Code'<span class="token operator">:</span> 'MNP'<span class="token punctuation">,</span>
+  'callingCodes'<span class="token operator">:</span> <span class="token punctuation">[</span>'<span class="token number">1</span>'<span class="token punctuation">]</span><span class="token punctuation">,</span>
+  'capital'<span class="token operator">:</span> 'Saipan'<span class="token punctuation">,</span>
+  'altSpellings'<span class="token operator">:</span> <span class="token punctuation">[</span>'MP'<span class="token punctuation">,</span>
+   'Commonwealth of the Northern Mariana Islands'<span class="token punctuation">,</span>
+   'Sankattan Siha Na Islas Mariånas'<span class="token punctuation">]</span><span class="token punctuation">,</span>
+  'region'<span class="token operator">:</span> 'Oceania'<span class="token punctuation">}</span><span class="token punctuation">,</span>
+ <span class="token punctuation">{</span>'name'<span class="token operator">:</span> 'Palau'<span class="token punctuation">,</span>
+  'topLevelDomain'<span class="token operator">:</span> <span class="token punctuation">[</span>'.pw'<span class="token punctuation">]</span><span class="token punctuation">,</span>
+  'alpha2Code'<span class="token operator">:</span> 'PW'<span class="token punctuation">,</span>
+  'alpha3Code'<span class="token operator">:</span> 'PLW'<span class="token punctuation">,</span>
+  'callingCodes'<span class="token operator">:</span> <span class="token punctuation">[</span>'<span class="token number">680</span>'<span class="token punctuation">]</span><span class="token punctuation">,</span>
+  'capital'<span class="token operator">:</span> 'Ngerulmud'<span class="token punctuation">,</span>
+  'altSpellings'<span class="token operator">:</span> <span class="token punctuation">[</span>'PW'<span class="token punctuation">,</span> 'Republic of Palau'<span class="token punctuation">,</span> 'Beluu er a Belau'<span class="token punctuation">]</span><span class="token punctuation">,</span>
+  'region'<span class="token operator">:</span> 'Oceania'<span class="token punctuation">}</span><span class="token punctuation">,</span>
+ <span class="token punctuation">{</span>'name'<span class="token operator">:</span> 'Panama'<span class="token punctuation">,</span>
+  'topLevelDomain'<span class="token operator">:</span> <span class="token punctuation">[</span>'.pa'<span class="token punctuation">]</span><span class="token punctuation">,</span>
+  'alpha2Code'<span class="token operator">:</span> 'PA'<span class="token punctuation">,</span>
+  'alpha3Code'<span class="token operator">:</span> 'PAN'<span class="token punctuation">,</span>
+  'callingCodes'<span class="token operator">:</span> <span class="token punctuation">[</span>'<span class="token number">507</span>'<span class="token punctuation">]</span><span class="token punctuation">,</span>
+  'capital'<span class="token operator">:</span> 'Panama City'<span class="token punctuation">,</span>
+  'altSpellings'<span class="token operator">:</span> <span class="token punctuation">[</span>'PA'<span class="token punctuation">,</span> 'Republic of Panama'<span class="token punctuation">,</span> 'República de Panamá'<span class="token punctuation">]</span><span class="token punctuation">,</span>
+  'region'<span class="token operator">:</span> 'Americas'<span class="token punctuation">}</span><span class="token punctuation">,</span>
+ <span class="token punctuation">{</span>'name'<span class="token operator">:</span> 'Puerto Rico'<span class="token punctuation">,</span>
+  'topLevelDomain'<span class="token operator">:</span> <span class="token punctuation">[</span>'.pr'<span class="token punctuation">]</span><span class="token punctuation">,</span>
+  'alpha2Code'<span class="token operator">:</span> 'PR'<span class="token punctuation">,</span>
+  'alpha3Code'<span class="token operator">:</span> 'PRI'<span class="token punctuation">,</span>
+  'callingCodes'<span class="token operator">:</span> <span class="token punctuation">[</span>'<span class="token number">1</span>'<span class="token punctuation">]</span><span class="token punctuation">,</span>
+  'capital'<span class="token operator">:</span> 'San Juan'<span class="token punctuation">,</span>
+  'altSpellings'<span class="token operator">:</span> <span class="token punctuation">[</span>'PR'<span class="token punctuation">,</span>
+   'Commonwealth of Puerto Rico'<span class="token punctuation">,</span>
+   'Estado Libre Asociado de Puerto Rico'<span class="token punctuation">]</span><span class="token punctuation">,</span>
+  'region'<span class="token operator">:</span> 'Americas'<span class="token punctuation">}</span><span class="token punctuation">,</span>
+ <span class="token punctuation">{</span>'name'<span class="token operator">:</span> 'Timor-Leste'<span class="token punctuation">,</span>
+  'topLevelDomain'<span class="token operator">:</span> <span class="token punctuation">[</span>'.tl'<span class="token punctuation">]</span><span class="token punctuation">,</span>
+  'alpha2Code'<span class="token operator">:</span> 'TL'<span class="token punctuation">,</span>
+  'alpha3Code'<span class="token operator">:</span> 'TLS'<span class="token punctuation">,</span>
+  'callingCodes'<span class="token operator">:</span> <span class="token punctuation">[</span>'<span class="token number">670</span>'<span class="token punctuation">]</span><span class="token punctuation">,</span>
+  'capital'<span class="token operator">:</span> 'Dili'<span class="token punctuation">,</span>
+  'altSpellings'<span class="token operator">:</span> <span class="token punctuation">[</span>'TL'<span class="token punctuation">,</span>
+   'East Timor'<span class="token punctuation">,</span>
+   'Democratic Republic of Timor-Leste'<span class="token punctuation">,</span>
+   'República Democrática de Timor-Leste'<span class="token punctuation">,</span>
+   'Repúblika Demokrátika Timór-Leste'<span class="token punctuation">]</span><span class="token punctuation">,</span>
+  'region'<span class="token operator">:</span> 'Asia'<span class="token punctuation">}</span><span class="token punctuation">,</span>
+ <span class="token punctuation">{</span>'name'<span class="token operator">:</span> 'Turks and Caicos Islands'<span class="token punctuation">,</span>
+  'topLevelDomain'<span class="token operator">:</span> <span class="token punctuation">[</span>'.tc'<span class="token punctuation">]</span><span class="token punctuation">,</span>
+  'alpha2Code'<span class="token operator">:</span> 'TC'<span class="token punctuation">,</span>
+  'alpha3Code'<span class="token operator">:</span> 'TCA'<span class="token punctuation">,</span>
+  'callingCodes'<span class="token operator">:</span> <span class="token punctuation">[</span>'<span class="token number">1</span>'<span class="token punctuation">]</span><span class="token punctuation">,</span>
+  'capital'<span class="token operator">:</span> 'Cockburn Town'<span class="token punctuation">,</span>
+  'altSpellings'<span class="token operator">:</span> <span class="token punctuation">[</span>'TC'<span class="token punctuation">]</span><span class="token punctuation">,</span>
+  'region'<span class="token operator">:</span> 'Americas'<span class="token punctuation">}</span><span class="token punctuation">,</span>
+ <span class="token punctuation">{</span>'name'<span class="token operator">:</span> 'United States of America'<span class="token punctuation">,</span>
+  'topLevelDomain'<span class="token operator">:</span> <span class="token punctuation">[</span>'.us'<span class="token punctuation">]</span><span class="token punctuation">,</span>
+  'alpha2Code'<span class="token operator">:</span> 'US'<span class="token punctuation">,</span>
+  'alpha3Code'<span class="token operator">:</span> 'USA'<span class="token punctuation">,</span>
+  'callingCodes'<span class="token operator">:</span> <span class="token punctuation">[</span>'<span class="token number">1</span>'<span class="token punctuation">]</span><span class="token punctuation">,</span>
+  'capital'<span class="token operator">:</span> 'Washington<span class="token punctuation">,</span> D.C.'<span class="token punctuation">,</span>
+  'altSpellings'<span class="token operator">:</span> <span class="token punctuation">[</span>'US'<span class="token punctuation">,</span> 'USA'<span class="token punctuation">,</span> 'United States of America'<span class="token punctuation">]</span><span class="token punctuation">,</span>
+  'region'<span class="token operator">:</span> 'Americas'<span class="token punctuation">}</span><span class="token punctuation">,</span>
+ <span class="token punctuation">{</span>'name'<span class="token operator">:</span> 'Zimbabwe'<span class="token punctuation">,</span>
+  'topLevelDomain'<span class="token operator">:</span> <span class="token punctuation">[</span>'.zw'<span class="token punctuation">]</span><span class="token punctuation">,</span>
+  'alpha2Code'<span class="token operator">:</span> 'ZW'<span class="token punctuation">,</span>
+  'alpha3Code'<span class="token operator">:</span> 'ZWE'<span class="token punctuation">,</span>
+  'callingCodes'<span class="token operator">:</span> <span class="token punctuation">[</span>'<span class="token number">263</span>'<span class="token punctuation">]</span><span class="token punctuation">,</span>
+  'capital'<span class="token operator">:</span> 'Harare'<span class="token punctuation">,</span>
+  'altSpellings'<span class="token operator">:</span> <span class="token punctuation">[</span>'ZW'<span class="token punctuation">,</span> 'Republic of Zimbabwe'<span class="token punctuation">]</span><span class="token punctuation">,</span>
+  'region'<span class="token operator">:</span> 'Africa'<span class="token punctuation">}</span><span class="token punctuation">]</span>
+</code></pre>
+<p>Ici, on obtient la liste des pays ayant le dollar comme monnaie mais ce résultat est pollué par tous les paramètres, on va chercher à obtenir la liste de ces pays :</p>
+<pre class="language-python " style="counter-reset: linenumber 0"><code class="language-python">dollar <span class="token operator">=</span> get_country_by_currency<span class="token punctuation">(</span><span class="token string">"usd"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>json<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">[</span>dollar<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'name'</span><span class="token punctuation">]</span> <span class="token keyword">for</span> k <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span>dollar<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
+</code></pre>
+<pre class="language-python " style="counter-reset: linenumber 0"><code class="language-python"><span class="token punctuation">[</span><span class="token string">'American Samoa'</span><span class="token punctuation">,</span>
+<span class="token string">'Bonaire, Sint Eustatius and Saba'</span><span class="token punctuation">,</span>
+<span class="token string">'British Indian Ocean Territory'</span><span class="token punctuation">,</span>
+<span class="token string">'United States Minor Outlying Islands'</span><span class="token punctuation">,</span>
+<span class="token string">'Virgin Islands (British)'</span><span class="token punctuation">,</span>
+<span class="token string">'Virgin Islands (U.S.)'</span><span class="token punctuation">,</span>
+<span class="token string">'Cambodia'</span><span class="token punctuation">,</span>
+<span class="token string">'Ecuador'</span><span class="token punctuation">,</span>
+<span class="token string">'El Salvador'</span><span class="token punctuation">,</span>
+<span class="token string">'Guam'</span><span class="token punctuation">,</span>
+<span class="token string">'Marshall Islands'</span><span class="token punctuation">,</span>
+<span class="token string">'Micronesia (Federated States of)'</span><span class="token punctuation">,</span>
+<span class="token string">'Northern Mariana Islands'</span><span class="token punctuation">,</span>
+<span class="token string">'Palau'</span><span class="token punctuation">,</span>
+<span class="token string">'Panama'</span><span class="token punctuation">,</span>
+<span class="token string">'Puerto Rico'</span><span class="token punctuation">,</span>
+<span class="token string">'Timor-Leste'</span><span class="token punctuation">,</span>
+<span class="token string">'Turks and Caicos Islands'</span><span class="token punctuation">,</span>
+<span class="token string">'United States of America'</span><span class="token punctuation">,</span>
+<span class="token string">'Zimbabwe'</span><span class="token punctuation">]</span>
+</code></pre>
+<p>Cette application n'était qu'un exemple illustrant l'intégration d'une API REST dans un script Python. Selon les besoins spécifiques d'un projet, des recherches ainsi que le parcours des documentations peuvent aider à trouver une API adaptée.</p>
+<h2>Conclusion</h2>
+<p>Au cours de ce MON j'ai pu apprendre les fondamentaux des API REST ainsi que leur utilisation à travers l'API CountryLayer et des exemples pratiques en Python. L'intégration d'API REST simplifie la récupération et l'analyse des données facilitant ainsi leurs utilisations. Pour le sprint 2 de mon POK, je prévois d'intégrer une API REST en VBA dans Excel afin d'en explorer les manipulations avec ce langage.</p>
+
+
+</article>
+
+        </main>
+
+
+        <footer class="min-h-[50px] border-t-2 border-gray-200 mt-4">
+            <div class="max-w-[1000px] mx-auto px-4">
+                <div class="min-h-[50px] flex justify-center items-center">
+                    <p class="text-center">
+                        <span style="font-family: Consolas, sans-serif;">Do_<span style="color: #4a86e8">It</span></span> : Développent et Organisation en IT
+                    </p>
+                </div>
+            </div>
+        </footer>
+
+        <script>
+        MathJax
+            .startup
+            .document
+            .getMathItemsWithin(document.body);
+        </script>
+
+    </body>
+</html>
