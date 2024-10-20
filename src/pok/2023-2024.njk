@@ -40,7 +40,7 @@ tags: ['index']
         <div class="text-3xl mb-3">
         Temps {{ temps }}
         </div>
-        <ul>
+        <ul class="grid md:grid-cols-2 not-prose list-none my-1 mx-0 px-1 gap-1">
             {% set types = [promo] %}
             {% set types = (types.push('temps ' + temps), types) %}
 
@@ -54,10 +54,19 @@ tags: ['index']
                     {% endfor %}
                 {% endfor %}
                 {% if c == types.length %}
-                    <li>
-                        <a href="{{ cours.url  }}">{{cours.data.title}}</a> ({{cours.data.authors}})
-                        </li>
-
+                    <li class="m-3 p-3 border-solid border-2 rounded relative flex-col justify-between">
+                        <div class="text-3xl mb-3">
+                            <a href="{{ cours.url  }}">{{cours.data.title}}</a>
+                        </div>
+                        {% if cours.data.résumé %}
+                            <span>{{ cours.data.résumé }}</span>
+                        {% else %}
+                            <span><i>POK de temps {{ temps }}.</i></span>
+                        {% endif %}
+                        <div class="flex flex-wrap flex-col items-end not-prose list-none my-1 mx-0 px-1 gap-1">
+                            <span class="bg-blue-200 rounded-full px-2">{{cours.data.authors}}</span>
+                        </div>
+                    </li>
                 {% endif %}
             {% endfor %}
         </ul>
