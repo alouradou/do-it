@@ -113,7 +113,7 @@ tags: ['index']
     const articleId = button.getAttribute('data-id');
     const isViewed = localStorage.getItem(articleId) === 'true';
 
-    button.textContent = isViewed ? '☑ Lu' : '☐ À lire';
+    button.textContent = isViewed ? '☑ Lu' : 'À lire';
     const parentCard = button.parentNode.parentElement;
     if (isViewed) {
         parentCard.classList.add("bg-neutral-100");
@@ -126,7 +126,7 @@ tags: ['index']
     parentCard.addEventListener('click', function () {
         const currentStatus = localStorage.getItem(articleId) === 'true';
         localStorage.setItem(articleId, !currentStatus);
-        button.textContent = !currentStatus ? '☑ Lu' : '☐ À lire';
+        button.textContent = !currentStatus ? '☑ Lu' : 'À lire';
 
         if (!currentStatus) {
             parentCard.classList.add("bg-neutral-100");
