@@ -8,16 +8,16 @@ authors:
 tags: ["ct"]
 ---
 
-Le site do-it est un site constitué de fichiers écrit au format [Markdown](https://francoisbrucker.github.io/cours_informatique/tutoriels/format-markdown/). Y contribuer est très simple, il suffit de suivre ce document.
+Le site Do_<span style="color: #4a86e8">It</span> est un site constitué de fichiers écrit au format [Markdown](https://francoisbrucker.github.io/cours_informatique/tutoriels/format-markdown/). Y contribuer est très simple, il suffit de suivre ce document.
 
 ## Architecture d'un post
 
-Un post do-it est un dossier à mettre dans le code source du site. Par exemple, cette page est le dossier <https://github.com/FrancoisBrucker/do-it/tree/main/src/cs/contribuer-au-site>
+Un post Do_<span style="color: #4a86e8">It</span> est un dossier à mettre dans le code source du site. Par exemple, cette page est le dossier <https://github.com/FrancoisBrucker/do-it/tree/main/src/cs/contribuer-au-site>
 
 Ce dossier contient :
 
 - un fichier `index.md` qui est le texte de votre post
-- les images ou autres fichier de ressources (code source, données, etc) que vous voulez montrer.
+- les images ou autre fichier de ressources (code source, données, etc) que vous voulez montrer.
 
 Il y a 3 endroits où placer ses contributions :
 
